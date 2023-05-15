@@ -1,0 +1,56 @@
+<!--<div class="card flex justify-content-center">
+  <p-calendar [(ngModel)]="date"></p-calendar>
+</div>
+-->
+<p></p>
+<div class="table-container">
+  <table class="movie-table">
+    <tr>
+      <td>Título:</td>
+      <td>{{ pelicula.titulo }}</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <img
+          [src]="pelicula.imagenUrl"
+          [alt]="pelicula.titulo"
+          style="width: 100%;"
+        />
+      </td>
+    </tr>
+  </table>
+</div>
+
+<form #formulario class="mi-formulario" (ngSubmit)="reservar()">
+  <label for="usuario">Usuario:</label>
+  <input
+    type="text"
+    id="usuario"
+    name="usuario"
+    [(ngModel)]="usuario"
+    required
+  />
+
+  <label for="start">Seleccione Fecha:</label>
+  <p-calendar
+    [(ngModel)]="fecha"
+    name="fecha"
+    id="fecha"
+    [showIcon]="true"
+    [minDate]="minFecha"
+  ></p-calendar>
+
+  <label for="hora">Seleccione Hora:</label>
+  <input
+    type="time"
+    id="hora"
+    name="hora"
+    min="09:00"
+    max="18:00"
+    step="3600"
+    [(ngModel)]="hora"
+  />
+
+  <button type="submit">Reservar</button>
+</form>
